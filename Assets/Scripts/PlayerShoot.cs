@@ -2,36 +2,23 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerShoot : MonoBehaviour
+
 {
+    public GameObject laserPrefab; // Укажите ваш префаб лазера в инспекторе
+    public float shootingForce = 10f; // Сила, с которой лазер будет двигаться
 
-    //переменная для ссылки на префаб лазера
-    public GameObject laser;
-    //задержка между выстрелами
-    public float delayTime;
-    //бинарная переменная для проверки возможности стрельбы
-    bool canShoot = true;
-
-    //выполняется каждый кадр
-    void Update()
+    void Start()
     {
-        //проверка: нажата-ли правая кнопка и можно-ли стрелять
-        if (canShoot && Input.GetMouseButton(1))
-        {
-            //отключить возможность стрельбы для следующей проверки
-            canShoot = false;
-            //спавн лазера на позиции корабля
-            Instantiate(laser, transform.position, transform.rotation);
-            //запуск функции дающей разрешение на стрельбу
-            StartCoroutine(NoFire());
-        }
+        // Начинаем автоматическую стрельбу каждые 0,5 секунды
+        InvokeRepeating("ShootLaser", 0f, 0.5f);
     }
 
-    //корутина, такую функцию можно поставить на паузу
-    IEnumerator NoFire()
+    void ShootLaser()
     {
-        //пауза этой функции, возврат через заданное время
-        yield return new WaitForSeconds(delayTime);
-        //влючить возможность стрельбы
-        canShoot = true;
+        // Создаем новый объект лазера
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
+        Vector3 direction = transform.up; // Лазер будет двигаться в направлении, в котором находится игрок
+        rb.AddForce(direction * shootingForce, ForceMode2D.Impulse);
     }
 }

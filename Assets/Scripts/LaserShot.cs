@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class LaserShot : MonoBehaviour {
+public class LaserShot : MonoBehaviour
+{
 
     Rigidbody2D rb;
     public int damage;
