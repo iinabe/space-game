@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb0fc075fb61474e8a7e18608eceb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
 --- !u!50 &1706946954
 Rigidbody2D:
   serializedVersion: 4
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c249dab4e4124524e91897d871f08e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 0}
+  laserPrefab: {fileID: 6648484896697070618, guid: 3551856d10e4dfa4f8c27778211d207e, type: 3}
   shootingForce: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
