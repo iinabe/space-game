@@ -563,8 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c249dab4e4124524e91897d871f08e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 6648484896697070618, guid: 3551856d10e4dfa4f8c27778211d207e, type: 3}
-  delayTime: 0.5
+  laserPrefab: {fileID: 0}
+  shootingForce: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
