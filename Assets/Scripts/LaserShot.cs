@@ -6,7 +6,7 @@ public class LaserShot : MonoBehaviour
 
     Rigidbody2D rb;
     public int damage;
-    //переменная величины силы
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     public float force;
 
     void Start()
@@ -21,7 +21,7 @@ public class LaserShot : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        //проверяем на тэг Enemy
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ Enemy
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
