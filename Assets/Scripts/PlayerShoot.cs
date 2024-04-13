@@ -4,21 +4,31 @@ using System.Collections;
 public class PlayerShoot : MonoBehaviour
 
 {
-    public GameObject laserPrefab; // Укажите ваш префаб лазера в инспекторе
-    public float shootingForce = 10f; // Сила, с которой лазер будет двигаться
-
+    public GameObject laserPrefab; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public float shootingForce = 10f; // пїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public int destroyedMeteoriteCount = 0;
+    
     void Start()
     {
-        // Начинаем автоматическую стрельбу каждые 0,5 секунды
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 0,5 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         InvokeRepeating("ShootLaser", 0f, 0.5f);
     }
 
     void ShootLaser()
     {
-        // Создаем новый объект лазера
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
-        Vector3 direction = transform.up; // Лазер будет двигаться в направлении, в котором находится игрок
+        Vector3 direction = transform.up; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         rb.AddForce(direction * shootingForce, ForceMode2D.Impulse);
+    }
+
+        void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Meteorite")
+        {
+            Destroy(other.gameObject);
+            destroyedMeteoriteCount++; // РЈРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… РјРµС‚РµРѕСЂРёС‚РѕРІ
+        }
     }
 }
