@@ -27,4 +27,9 @@ public class LaserShot : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
