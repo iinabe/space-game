@@ -29,10 +29,11 @@ public class PlayerShoot : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Meteorite")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Destroy(other.gameObject);
             destroyedMeteoriteCount++;
         }
     }
+
 }

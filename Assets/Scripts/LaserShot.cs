@@ -3,25 +3,25 @@ using System.Collections;
 
 public class LaserShot : MonoBehaviour
 {
-
-    Rigidbody2D rb;
+    public float speed = 10f;
     public int damage;
-    public float force;
+    public Vector2 direction;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        Vector3 direction = transform.up * force; // Новое направление по координатам
-        rb.velocity = new Vector2(direction.x, direction.y); // Устанавливаем скорость по координатам
+        // Направление движения лазера
+        direction = transform.up;
     }
 
-    void OnBecameInvisible()
+    void Update()
     {
-        Destroy(gameObject);
+        // Двигаем лазер по направлению с заданной скоростью
+        transform.Translate(direction * speed * Time.deltaTime);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             other.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject);
