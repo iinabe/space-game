@@ -2,33 +2,37 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerShoot : MonoBehaviour
-
 {
-    public GameObject laserPrefab; // ������� ��� ������ ������ � ����������
-    public float shootingForce = 10f; // ����, � ������� ����� ����� ���������
+    public GameObject laserPrefab;
+    public float shootingForce = 10f;
     public int destroyedMeteoriteCount = 0;
-    
-    void Start()
+
+    private float shootInterval = 0.5f;
+    private float shootTimer = 0f;
+
+    void Update()
     {
-        // �������� �������������� �������� ������ 0,5 �������
-        InvokeRepeating("ShootLaser", 0f, 0.5f);
+        shootTimer += Time.deltaTime; // Увеличиваем время прошедшее с момента последнего выстрела
+        if (shootTimer >= shootInterval) // Если прошло время, больше или равное интервалу между выстрелами
+        {
+            ShootLaser(); // Стреляем лазером
+            shootTimer = 0f; // Сбрасываем таймер обратно
+        }
     }
 
     void ShootLaser()
     {
-        // ������� ����� ������ ������
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-        Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
-        Vector3 direction = transform.up; // ����� ����� ��������� � �����������, � ������� ��������� �����
-        rb.AddForce(direction * shootingForce, ForceMode2D.Impulse);
+        Vector3 direction = transform.up;
+        laser.transform.position += direction * shootingForce * Time.deltaTime; // Двигаем лазер вперед с постоянной скоростью
     }
 
-        void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Meteorite")
         {
             Destroy(other.gameObject);
-            destroyedMeteoriteCount++; // Увеличиваем счетчик уничтоженных метеоритов
+            destroyedMeteoriteCount++;
         }
     }
 }
