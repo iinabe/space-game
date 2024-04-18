@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    public struct SceneNames
+    struct SceneNames
     {
-        public const string Menu = "Menu";
-        public const string MainScene = "MainScene";
+        const string Menu = "Menu";
+        const string MainScene = "MainScene";
     }
 }
 

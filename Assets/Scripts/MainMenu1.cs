@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu1 : MonoBehaviour
 {
-    // Метод для загрузки главной сцены
-    public void PlayGame()
+   public void PlayGame()
     {
-        // Загружаем сцену, используя имя, хранящееся в структуре GameSettings
-        SceneManager.LoadScene(GameSettings.SceneNames.MainScene);
+        SceneManager.LoadScene("MainScene");
     }
     public void ExitGame()
     {
