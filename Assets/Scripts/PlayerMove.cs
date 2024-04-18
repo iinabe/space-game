@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class SimpleUIInput : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public Joystick joystick;
+    private Vector2 moveVector;
+    public float moveSpeed;
 
-    void Update()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        float horizontalInput = joystick.Horizontal;
-        float verticalInput = joystick.Vertical;
-
-        float horizontalMovement = horizontalInput * speed * Time.deltaTime;
-        float verticalMovement = verticalInput * speed * Time.deltaTime;
-
-        transform.Translate(new Vector3(horizontalMovement, verticalMovement, 0));
+        moveVector = context.ReadValue<Vector2>();
     }
+
+    private void FixedUpdate()
+    {
+        transform.position += moveVector.x * moveSpeed * Time.fixedDeltaTime * transform.right +
+              moveVector.y * moveSpeed * Time.fixedDeltaTime * transform.forward;
+    }
+
 }
+
