@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AsteroidDamage : MonoBehaviour
 {
@@ -14,15 +15,24 @@ public class AsteroidDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            Debug.Log("Asteroid collided with player!");
+            HpController hpController = other.gameObject.GetComponent<HpController>();
+            if (hpController != null)
+            {
+                hpController.MakeDamage(damage); 
+            }
+            else 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             Destroy(gameObject);
         }
-    }
+    } 
+
 }
