@@ -8,6 +8,7 @@ public class AsteroidMove : MonoBehaviour
     private Vector3 initialPosition;
     public float speed;
     Rigidbody2D rb;
+    public int damage;
 
     void Start()
     {
@@ -27,12 +28,13 @@ public class AsteroidMove : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D something)
+
+   /*void OnCollisionEnter2D(Collision2D something)
     {
         if (something.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
+    } */
 }
