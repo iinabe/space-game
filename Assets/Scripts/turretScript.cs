@@ -36,7 +36,7 @@ public class turretScript : MonoBehaviour
         Vector2 targetPos = Target.position;
 
         Direction = targetPos - (Vector2)transform.position;
-
+        //Direction.sqrMagnitude<Range * Range
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
 
         if (rayInfo)

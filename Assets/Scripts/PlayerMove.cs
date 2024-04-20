@@ -10,14 +10,22 @@ public class SimpleUIInput : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        // Получаем направление движения с джойстика
         moveVector = context.ReadValue<Vector2>();
+
+        // Устанавливаем вертикальную составляющую движения
+        moveVector.y = Mathf.Clamp(moveVector.y, -1.0f, 1.0f);
+
+        // Двигаем персонажа
+        MovePlayer(moveVector);
     }
 
-    private void FixedUpdate()
+    private void MovePlayer(Vector2 direction)
     {
-        transform.position += moveVector.x * moveSpeed * Time.fixedDeltaTime * transform.right +
-              moveVector.y * moveSpeed * Time.fixedDeltaTime * transform.forward;
+        // Создаем вектор движения
+        Vector3 movement = new Vector3(direction.x, direction.y, 0f) * moveSpeed * Time.deltaTime;
+
+        // Применяем движение к персонажу
+        transform.Translate(movement, Space.World);
     }
-
 }
-
