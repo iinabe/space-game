@@ -8,7 +8,6 @@ public class AsteroidMove : MonoBehaviour
     private Vector3 initialPosition;
     public float speed;
     Rigidbody2D rb;
-    public int damage;
 
     void Start()
     {

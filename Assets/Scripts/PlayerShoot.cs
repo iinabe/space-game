@@ -27,13 +27,4 @@ public class PlayerShoot : MonoBehaviour
         laser.transform.position += direction * shootingForce * Time.deltaTime; // Двигаем лазер вперед с постоянной скоростью
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            Destroy(other.gameObject);
-            destroyedMeteoriteCount++;
-        }
-    }
-
 }
