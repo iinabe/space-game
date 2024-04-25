@@ -21,7 +21,7 @@ public class TurretDamage : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            Destroy(other.gameObject); // ”ничтожаем пулю, котора€ попала
+            Destroy(other.gameObject); 
         }
-    }
+    }   
 }

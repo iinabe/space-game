@@ -1,8 +1,30 @@
 using UnityEngine;
-using System.Collections;
 
 public class HpController : MonoBehaviour {
-    public int hp;
+    public enum ObjectType { Player, Asteroid, Turret } 
+
+    public ObjectType objectType; 
+
+    private int hp;
+
+    void Start()
+    {
+        switch (objectType)
+        {
+            case ObjectType.Player:
+                hp = 100;
+                break;
+            case ObjectType.Asteroid:
+                hp = 3;
+                break;
+            case ObjectType.Turret:
+                hp = 3;
+                break;
+            default:
+                hp = 100; 
+                break;
+        }
+    }
 
     public void MakeDamage(int damage)
     {

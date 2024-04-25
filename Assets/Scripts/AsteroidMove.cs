@@ -19,21 +19,9 @@ public class AsteroidMove : MonoBehaviour
 
    void OnBecameInvisible()
     {
-        // Перемещаем метеорит обратно в изначальное положение
         transform.position = initialPosition;
-        // Продолжаем движение в том же направлении
        Vector3 move = new Vector3(0, -1, 0);
         rb.velocity = move * speed;
 
     }
-
-
-   /*void OnCollisionEnter2D(Collision2D something)
-    {
-        if (something.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    } */
 }

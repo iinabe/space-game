@@ -25,25 +25,17 @@ public class turretScript : MonoBehaviour
 
     public float Force;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 targetPos = Target.position;
 
         Direction = targetPos - (Vector2)transform.position;
-        //Direction.sqrMagnitude < Range * Range;
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
         Debug.Log(targetPos);
 
         if (rayInfo)
         {
 
-            //Detected = !Detected;
             if (rayInfo.collider.gameObject.tag == "Player")
             {
                 

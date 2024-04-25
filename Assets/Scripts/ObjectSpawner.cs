@@ -6,24 +6,30 @@ public class ObjectSpawner : MonoBehaviour
     public Transform RightPosition;
     public float spawnDelay;
     public GameObject Item;
-    private int meteoriteCount = 0; // Переменная для отслеживания количества созданных метеоритов
-    
-    void Start()
+    private int meteoriteCount = 0; 
+    private float timer = 0f;
+
+    void Update()
     {
-        InvokeRepeating("Spawn", spawnDelay, spawnDelay);
+        timer += Time.deltaTime; 
+        if (timer >= spawnDelay && meteoriteCount < 10) 
+        {
+            Spawn(); 
+            timer = 0f; 
+        }
     }
 
     void Spawn()
     {
-        if (meteoriteCount < 10) // Проверяем, не созданы ли уже 10 метеоритов
+        if (meteoriteCount < 10) 
         {
             Vector3 spawnPos = new Vector3(Random.Range(transform.position.x, RightPosition.position.x), transform.position.y, 0);
             Instantiate(Item, spawnPos, transform.rotation);
-            meteoriteCount++; // Увеличиваем счетчик созданных метеоритов
+            meteoriteCount++; 
         }
         else
         {
-            CancelInvoke("Spawn"); // Отменяем повторение, если создано 10 метеоритов
+           enabled = false;  
         }
     }
 }

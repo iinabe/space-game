@@ -30,9 +30,9 @@ void Start()
     void OnBecameInvisible()
    {
         Destroy(gameObject);
-        // ѕеремещаем метеорит обратно в изначальное положение
+       
         //transform.position = initialPosition;
-        // ѕродолжаем движение в том же направлении
+      
         //Vector3 move = new Vector3(0, -1, 0);
         //rb.velocity = move * speed;
 

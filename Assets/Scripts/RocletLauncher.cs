@@ -10,10 +10,10 @@ public class PlayerRocketLauncher : MonoBehaviour
     {
        // if (context.performed)
         {
-            Debug.Log("Rocket launched!"); // ƒобавл€ем отладочное сообщение о запуске ракеты
+            Debug.Log("Rocket launched!"); 
 
             GameObject rocket = Instantiate(rocketPrefab, transform.position, transform.rotation);
-            Destroy(rocket, 5f); // ”ничтожить ракету через 5 секунд
+            Destroy(rocket, 5f); 
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius); 
             foreach (Collider2D collider in colliders)
