@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BulletScript : MonoBehaviour
+public class TurretDamage : MonoBehaviour
 {
     public int damage;
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Bullet")
         {
             Debug.Log("Bullet collided with player!");
             HpController hpController = other.gameObject.GetComponent<HpController>();
@@ -21,12 +21,7 @@ public class BulletScript : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            Destroy(gameObject);
+            Destroy(other.gameObject); // ”ничтожаем пулю, котора€ попала
         }
-    }
-
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
 }
