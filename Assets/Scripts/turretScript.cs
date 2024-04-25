@@ -31,19 +31,23 @@ public class turretScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 targetPos = Target.position;
 
         Direction = targetPos - (Vector2)transform.position;
-        //Direction.sqrMagnitude<Range * Range
+        //Direction.sqrMagnitude < Range * Range;
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
+        Debug.Log(targetPos);
 
         if (rayInfo)
         {
+
+            //Detected = !Detected;
             if (rayInfo.collider.gameObject.tag == "Player")
             {
-                if(Detected == false)
+                
+                if (Detected == false)
                 {
                     Detected = true;
                 }
@@ -59,6 +63,7 @@ public class turretScript : MonoBehaviour
 
         if (Detected)
         {
+            Debug.Log("3");
             Gun.transform.up = Direction;
             if(Time.time > nextTimeToFire)
             {
