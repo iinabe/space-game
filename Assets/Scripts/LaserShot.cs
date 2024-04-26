@@ -9,13 +9,11 @@ public class LaserShot : MonoBehaviour
 
     void Start()
     {
-        // Направление движения лазера
         direction = transform.up;
     }
 
     void Update()
     {
-        // Двигаем лазер по направлению с заданной скоростью
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
