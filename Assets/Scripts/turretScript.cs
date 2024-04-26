@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class turretScript : MonoBehaviour
 {
@@ -33,29 +34,19 @@ public class turretScript : MonoBehaviour
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
         Debug.Log(targetPos);
 
-        if (rayInfo)
-        {
 
-            if (rayInfo.collider.gameObject.tag == "Player")
-            {
-                
-                if (Detected == false)
-                {
-                    Detected = true;
-                }
-            }
-            else
-            {
-                if (Detected == true)
-                {
-                    Detected = false;
-                }
-            }
+        if (rayInfo && rayInfo.collider.gameObject.tag == "Player")
+        {
+            Detected = Direction.sqrMagnitude < Range * Range;
         }
+        else
+        {
+            Detected = false;
+        }
+
 
         if (Detected)
         {
-            Debug.Log("3");
             Gun.transform.up = Direction;
             if(Time.time > nextTimeToFire)
             {
@@ -76,5 +67,13 @@ public class turretScript : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, Range);
+    }
+    private void OnDestroy()
+    {
+        TurretSpawner spawner = FindObjectOfType<TurretSpawner>(); // Находит объект TurretSpawner в сцене
+        if (spawner != null)
+        {
+            spawner.TurretDestroyed(); // Вызов события TurretDestroyed
+        }
     }
 }
