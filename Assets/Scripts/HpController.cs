@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class HpController : MonoBehaviour {
-    public enum ObjectType { Player, Asteroid, Turret } 
+public class HpController : MonoBehaviour
+{
+    public enum ObjectType { Player, Asteroid, Turret }
 
-    public ObjectType objectType; 
+    public ObjectType objectType;
 
     private int hp;
 
@@ -21,7 +22,7 @@ public class HpController : MonoBehaviour {
                 hp = 3;
                 break;
             default:
-                hp = 100; 
+                hp = 100;
                 break;
         }
     }
@@ -29,9 +30,13 @@ public class HpController : MonoBehaviour {
     public void MakeDamage(int damage)
     {
         hp -= damage;
-       
+
         if (hp <= 0)
         {
+            if (objectType == ObjectType.Turret)
+            {
+                GetComponent<turretScript>().HpLost();
+            }
             Destroy(gameObject);
         }
     }

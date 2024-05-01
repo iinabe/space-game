@@ -493,9 +493,9 @@ GameObject:
   m_Component:
   - component: {fileID: 696976623}
   - component: {fileID: 696976622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TurretSpawner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,8 +516,8 @@ MonoBehaviour:
   LeftPosition: {fileID: 836700242}
   TopPosition: {fileID: 2001297839}
   BottomPosition: {fileID: 1366622657}
-  spawnDelay: 5
-  Item: {fileID: 593949826869806151, guid: 1a7fdc996a93d5e4db35cf53bbdc4b22, type: 3}
+  spawnDelay: 2
+  Item: {fileID: 5703329056950361787, guid: 1a7fdc996a93d5e4db35cf53bbdc4b22, type: 3}
 --- !u!4 &696976623
 Transform:
   m_ObjectHideFlags: 0
@@ -531,10 +531,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2070430414}
   - {fileID: 2001297839}
-  - {fileID: 836700242}
   - {fileID: 1366622657}
+  - {fileID: 2070430414}
+  - {fileID: 836700242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812702005
@@ -734,7 +734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 836700242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftPossition
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -750,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 836700241}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.43, y: 0.04, z: 0}
+  m_LocalPosition: {x: -8.48, y: 2.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1072,7 +1072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1366622657}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomPosition
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -1088,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 1366622656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.87, y: 5.07, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1397,7 +1397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001297839}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopPossition
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -1413,7 +1413,7 @@ Transform:
   m_GameObject: {fileID: 2001297838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.96, y: 4.99, z: 0}
+  m_LocalPosition: {x: -0.39, y: 4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1428,7 +1428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2070430414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomRightPosition
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -1444,7 +1444,7 @@ Transform:
   m_GameObject: {fileID: 2070430413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.9, y: -0.14, z: 0}
+  m_LocalPosition: {x: 8.03, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

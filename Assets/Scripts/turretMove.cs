@@ -7,7 +7,7 @@ public class TurretMove : MonoBehaviour
 {
     private Vector3 moveDirection;
     private Vector3 initialPosition;
-    public float BottomPosition;
+    public Transform BottomPosition;
     public float speed;
     Rigidbody2D rb;
     public int damage;
@@ -16,7 +16,8 @@ public class TurretMove : MonoBehaviour
 
 void Start()
     {
-        initialPosition = transform.position;
+        initialPosition = transform.position; // на старте(ботомпозишн сделать такой) сделать рандом.рэндж(20, 80)+20
+        BottomPosition = TurretSpawner.instance.BottomPosition;
         rb = GetComponent<Rigidbody2D>();
         //var random = new Random();
         //int index = random.Next(Direction.Count);
@@ -24,23 +25,12 @@ void Start()
         //Vector3 move = new Vector3(1, 0, 0);
         //Vector3 move = new Vector3(-1, 0, 0);
         rb.velocity = move * speed;
-        Debug.Log(transform.position.y);
     }
 
-    void OnBecameInvisible()
-   {
-        Destroy(gameObject);
-       
-        //transform.position = initialPosition;
-      
-        //Vector3 move = new Vector3(0, -1, 0);
-        //rb.velocity = move * speed;
-
-    }
 
     void FixedUpdate()
     {
-        if (transform.position.y <= BottomPosition)
+        if (transform.position.y <= BottomPosition.position.y)
         {
             rb.velocity = new Vector2(0,0);
         }
