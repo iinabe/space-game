@@ -8,9 +8,8 @@ public class PlayerRocketLauncher : MonoBehaviour
 
     public void LaunchRocket(InputAction.CallbackContext context)
     {
-       // if (context.performed)
+       if (context.performed)
         {
-            Debug.Log("Rocket launched!"); 
 
             GameObject rocket = Instantiate(rocketPrefab, transform.position, transform.rotation);
             Destroy(rocket, 5f); 
@@ -20,7 +19,6 @@ public class PlayerRocketLauncher : MonoBehaviour
             {
                 if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
                 {
-                    Debug.Log("Enemy hit! Destroying enemy...");
                     Destroy(collider.gameObject);
                 }
             }

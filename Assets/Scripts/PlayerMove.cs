@@ -22,5 +22,10 @@ public class SimpleUIInput : MonoBehaviour
         Vector3 movement = new Vector3(direction.x, direction.y, 0f) * moveSpeed * Time.deltaTime;
 
         transform.Translate(movement, Space.World);
+
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+        viewportPosition.x = Mathf.Clamp(viewportPosition.x, 0.1f, 0.9f);
+        viewportPosition.y = Mathf.Clamp(viewportPosition.y, 0.1f, 0.9f); 
+        transform.position = Camera.main.ViewportToWorldPoint(viewportPosition);
     }
 }
