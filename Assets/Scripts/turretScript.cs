@@ -29,24 +29,32 @@ public class turretScript : MonoBehaviour
 
     public float Force;
 
+    public string targetTag = "Player";
+
+
     void FixedUpdate()
     {
-        Vector2 targetPos = Target.position;
+        GameObject[] players = GameObject.FindGameObjectsWithTag(targetTag);
 
-        Direction = targetPos - (Vector2)transform.position;
-        Detected = Direction.sqrMagnitude < Range * Range;
-
-        if (Detected)
+        if (players.Length > 0)
         {
-            Gun.transform.up = Direction;
-            if(Time.time > nextTimeToFire)
+            Target = players[0].transform;
+            Vector2 targetPos = Target.position;
+            Direction = targetPos - (Vector2)transform.position;
+            Detected = Direction.sqrMagnitude < Range * Range;
+
+            if (Detected)
             {
-                nextTimeToFire = Time.time + 1 / FireRate;
-                shoot();
+                Gun.transform.up = Direction;
+                if (Time.time > nextTimeToFire)
+                {
+                    nextTimeToFire = Time.time + 1 / FireRate;
+                    shoot();
+                }
             }
         }
-
     }
+
 
 
     void shoot()
