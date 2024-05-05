@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class HpController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class HpController : MonoBehaviour
     public ObjectType objectType;
 
     private int hp;
+
+    public GameObject Explosion;
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class HpController : MonoBehaviour
             {
                 GetComponent<turretScript>().HpLost();
             }
+            Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

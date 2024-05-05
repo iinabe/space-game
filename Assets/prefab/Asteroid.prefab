@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
 --- !u!114 &-5146378408678835376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccaa4077ab6dc324a9d405ea989c5642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ateroidSound: {fileID: 0}
   damage: 20
 --- !u!82 &2061684484774244352
 AudioSource:

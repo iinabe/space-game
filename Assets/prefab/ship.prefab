@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: -8964574238574111846}
   - component: {fileID: -5305567964203339958}
   - component: {fileID: -644710583224517517}
-  - component: {fileID: -7762107132716207387}
   m_Layer: 0
-  m_Name: Ship
+  m_Name: ship
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,16 +172,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
---- !u!114 &-7762107132716207387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4718313896597647792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be73b8d9366cd2544b6db6c300a187b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 3
