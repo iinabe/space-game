@@ -3,7 +3,9 @@ guid: be73b8d9366cd2544b6db6c300a187b3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
+  - Explosion: {fileID: 593949826869806151, guid: 1a7fdc996a93d5e4db35cf53bbdc4b22, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

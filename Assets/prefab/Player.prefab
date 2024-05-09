@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 3812770966081452574, guid: af12cf9cb9937164e905b963a684112a, type: 3}
   explosionRadius: 5
+  damage: 100
 --- !u!114 &5570287066012696677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,4 +325,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
+  explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}

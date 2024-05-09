@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5238096097317951844}
   - component: {fileID: -3380286461730426868}
   - component: {fileID: -5146378408678835376}
-  - component: {fileID: 2061684484774244352}
+  - component: {fileID: 3052161004941680564}
   m_Layer: 3
   m_Name: Asteroid
   m_TagString: Enemy
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
 --- !u!114 &-5146378408678835376
 MonoBehaviour:
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
---- !u!82 &2061684484774244352
+--- !u!82 &3052161004941680564
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

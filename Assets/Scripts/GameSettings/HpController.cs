@@ -7,8 +7,11 @@ public class HpController : MonoBehaviour
 
     public ObjectType objectType;
 
+
     private int hp;
-    private int maxHp = 100; // ћаксимальное значение здоровь€
+    private int maxHp = 100; 
+    public AudioClip explosionSound; 
+    private AudioSource audioSource; 
 
     public GameObject Explosion;
 
@@ -29,6 +32,7 @@ public class HpController : MonoBehaviour
                 hp = maxHp;
                 break;
         }
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     public void MakeDamage(int damage)
@@ -36,12 +40,14 @@ public class HpController : MonoBehaviour
         hp -= damage;
 
         if (hp <= 0)
-        {
+        {   
+            AudioSource.PlayClipAtPoint(explosionSound, this.gameObject.transform.position);
             if (objectType == ObjectType.Turret)
             {
                 GetComponent<turretScript>().HpLost();
             }
             Instantiate(Explosion, transform.position, Quaternion.identity);
+            
             Destroy(gameObject);
         }
     }
@@ -50,6 +56,14 @@ public class HpController : MonoBehaviour
     {
         hp += healAmount;
         Debug.Log("Health increased by " + healAmount + ", current health is " + hp);
-        hp = Mathf.Min(hp, maxHp); // ќграничиваем значение здоровь€ максимальным значением
+        hp = Mathf.Min(hp, maxHp); 
+    }
+
+    void PlayExplosionSound()
+    {
+        if (explosionSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(explosionSound); 
+        }
     }
 }

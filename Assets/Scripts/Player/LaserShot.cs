@@ -6,10 +6,13 @@ public class LaserShot : MonoBehaviour
     public float speed = 10f;
     public int damage;
     public Vector2 direction;
+    public AudioClip explosionSound; // Звук взрыва астероида
+    private AudioSource audioSource; // Компонент для воспроизведения звука
 
     void Start()
     {
         direction = transform.up;
+        audioSource = GetComponent<AudioSource>(); // Получаем компонент AudioSource
     }
 
     void Update()
@@ -22,6 +25,7 @@ public class LaserShot : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             other.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            PlayExplosionSound(); // Вызываем метод для воспроизведения звука взрыва
             Destroy(gameObject);
         }
     }
@@ -29,5 +33,13 @@ public class LaserShot : MonoBehaviour
     void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    void PlayExplosionSound()
+    {
+        if (explosionSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(explosionSound); // Воспроизводим звук взрыва
+        }
     }
 }
