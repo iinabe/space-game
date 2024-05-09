@@ -12,7 +12,7 @@ public class TurretSpawner : MonoBehaviour
 
     public float spawnDelay;
     public turretScript Item;
-    private int maxTurrets = 3;
+    private int maxTurrets = 2;
     private int turretCount = 0;
 
     void Start()
