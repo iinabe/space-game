@@ -5,11 +5,12 @@ public class MedKitHeal : MonoBehaviour
 {
     public int healAmount; // Количество здоровья, которое восстанавливает аптечка
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
+
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Bullet collided with kit!");
+            Debug.Log("MedKit collided with kit!");
             HpController hpController = other.gameObject.GetComponent<HpController>();
             if (hpController != null)
             {
