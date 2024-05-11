@@ -5,6 +5,7 @@ public class LaserShot : MonoBehaviour
 {
     public float speed = 10f;
     public int damage;
+    //gamesettings.damages.laserDamage;
     public Vector2 direction;
     public AudioClip explosionSound; // Звук взрыва астероида
     private AudioSource audioSource; // Компонент для воспроизведения звука

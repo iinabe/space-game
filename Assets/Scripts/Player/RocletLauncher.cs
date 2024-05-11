@@ -6,6 +6,7 @@ public class PlayerRocketLauncher : MonoBehaviour
     public GameObject rocketPrefab;
     public float explosionRadius = 5f;
     public int damage = 100;
+    //GameSettings.Damages.rocketDamage;
 
     public void LaunchRocket(InputAction.CallbackContext context)
     {
