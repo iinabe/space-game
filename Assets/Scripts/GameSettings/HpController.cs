@@ -14,6 +14,7 @@ public class HpController : MonoBehaviour
     private AudioSource audioSource; 
 
     public GameObject Explosion;
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -21,6 +22,10 @@ public class HpController : MonoBehaviour
         {
             case ObjectType.Player:
                 hp = maxHp;
+               if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHp);
+        }
                 break;
             case ObjectType.Asteroid:
                 hp = 3;
@@ -49,7 +54,12 @@ public class HpController : MonoBehaviour
             Instantiate(Explosion, transform.position, Quaternion.identity);
             
             Destroy(gameObject);
+            
         }
+        else if (objectType == ObjectType.Player && healthBar != null)
+            {
+                healthBar.SetHealth(hp);
+            }
     }
 
     public void Heal(int healAmount)
