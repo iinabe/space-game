@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class CoinText : MonoBehaviour
 {
-    Text CoinTexts;
-    public static int Coin;
+    Text coinText;
+
     void Start()
     {
-        CoinTexts = GetComponent<Text>();
-        Coin = PlayerPrefs.GetInt("Coins", Coin);
+        coinText = GetComponent<Text>();
+        Coins.coinCount = PlayerPrefs.GetInt("Coins", Coins.coinCount);
     }
 
     void Update()
     {
-        CoinTexts.text = Coin.ToString();
+        coinText.text = Coins.coinCount.ToString();
     }
 }
