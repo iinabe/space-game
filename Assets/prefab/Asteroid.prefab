@@ -180,6 +180,8 @@ MonoBehaviour:
   objectType: 1
   explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
+  healthBar: {fileID: 0}
+  armorBar: {fileID: 0}
 --- !u!114 &-5146378408678835376
 MonoBehaviour:
   m_ObjectHideFlags: 0
