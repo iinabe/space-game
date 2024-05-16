@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2030988505218907516}
   - component: {fileID: 5238096097317951844}
   - component: {fileID: -3380286461730426868}
-  - component: {fileID: -5146378408678835376}
   - component: {fileID: 3052161004941680564}
+  - component: {fileID: -2463897933187135570}
   m_Layer: 3
   m_Name: Asteroid
   m_TagString: Enemy
@@ -182,19 +182,6 @@ MonoBehaviour:
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
   healthBar: {fileID: 0}
   armorBar: {fileID: 0}
---- !u!114 &-5146378408678835376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4466414045021280802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccaa4077ab6dc324a9d405ea989c5642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!82 &3052161004941680564
 AudioSource:
   m_ObjectHideFlags: 0
@@ -291,3 +278,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2463897933187135570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466414045021280802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf5f5d30875f74428eef7228a77be4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20

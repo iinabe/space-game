@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class TurretMove : MonoBehaviour
@@ -11,19 +10,14 @@ public class TurretMove : MonoBehaviour
     public float speed;
     Rigidbody2D rb;
     public int damage;
-    //public List<Vector3> Direction = new List<Vector3>() {new Vector3(0, -1, 0), new Vector3(1, 0, 0), new Vector3(-1, 0, 0) }
     
 
 void Start()
     {
-        initialPosition = transform.position; // на старте(ботомпозишн сделать такой) сделать рандом.рэндж(20, 80)+20
+        initialPosition = transform.position; 
         BottomPosition = TurretSpawner.instance.BottomPosition;
         rb = GetComponent<Rigidbody2D>();
-        //var random = new Random();
-        //int index = random.Next(Direction.Count);
         Vector3 move = new Vector3(0, -1, 0);
-        //Vector3 move = new Vector3(1, 0, 0);
-        //Vector3 move = new Vector3(-1, 0, 0);
         rb.velocity = move * speed;
     }
 
