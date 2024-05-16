@@ -168,6 +168,8 @@ MonoBehaviour:
   objectType: 2
   explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
+  healthBar: {fileID: 0}
+  armorBar: {fileID: 0}
 --- !u!61 &6246003872519973179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,7 +202,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008862019, y: -0.0067118406}
+  m_Offset: {x: -0.0074700117, y: 0.02007094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -211,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2767534, y: 3.8926065}
+  m_Size: {x: 1.295182, y: 1.026808}
   m_EdgeRadius: 0
 --- !u!82 &-4471517585043516410
 AudioSource:

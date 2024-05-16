@@ -74,6 +74,6 @@ public class turretScript : MonoBehaviour
 
     public void Die()
     {
-        //Destroy(gameObject);
+
     }
 }
