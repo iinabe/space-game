@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  target: {fileID: 917282607010663579, guid: e060a67a40fce344da69d47a5b80c9e5, type: 3}
 --- !u!82 &2424104971597753617
 AudioSource:
   m_ObjectHideFlags: 0
