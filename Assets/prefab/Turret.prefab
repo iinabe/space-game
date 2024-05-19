@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8335922003992200184}
   - component: {fileID: 6246003872519973179}
   - component: {fileID: -4471517585043516410}
+  - component: {fileID: -5041174696936965291}
   m_Layer: 3
   m_Name: Turret
   m_TagString: Enemy
@@ -311,6 +312,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5041174696936965291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593949826869806151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 111, y: 111}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &6351359148540430088
 PrefabInstance:
   m_ObjectHideFlags: 0

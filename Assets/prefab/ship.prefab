@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: -541286548547497958}
   - component: {fileID: -8964574238574111846}
   - component: {fileID: -5305567964203339958}
-  - component: {fileID: -644710583224517517}
+  - component: {fileID: -5442746105530265860}
   m_Layer: 0
-  m_Name: ship
+  m_Name: Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4718313896597647792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.52, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 98d725d8205c9d149949bfe7e4d462b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-644710583224517517
+--- !u!114 &-5442746105530265860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4718313896597647792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb0fc075fb61474e8a7e18608eceb83, type: 3}
+  m_Script: {fileID: 11500000, guid: be73b8d9366cd2544b6db6c300a187b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  objectType: 0
+  explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
+  Explosion: {fileID: 593949826869806151, guid: 1a7fdc996a93d5e4db35cf53bbdc4b22, type: 3}
+  ship: {fileID: 0}
+  healthBar: {fileID: 0}
+  armorBar: {fileID: 0}

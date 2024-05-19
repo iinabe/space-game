@@ -5,7 +5,6 @@ public class HpController : MonoBehaviour
     public enum ObjectType { Player, Asteroid, Turret }
 
     public ObjectType objectType;
-
     private int hp;
     private int maxHp = 100;
     private int armor;
@@ -14,6 +13,7 @@ public class HpController : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject Explosion;
+    public ShipArmorController ship;
     public HealthBar healthBar;
     public ArmorBar armorBar;
 
@@ -62,11 +62,16 @@ public class HpController : MonoBehaviour
             {
                 armorBar.SetArmor(armor);
             }
+            if (armor <= 0 && objectType == ObjectType.Player && ship != null)
+            {
+                ship.HideOutline();
+            }
         }
 
         // Если урон остаётся после уменьшения брони, он уменьшает здоровье
         if (damage > 0)
         {
+           
             hp -= damage;
         }
 
