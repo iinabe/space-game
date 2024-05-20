@@ -697,12 +697,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1986792521}
         m_TargetAssemblyTypeName: SkinControl, Assembly-CSharp
-        m_MethodName: Buy
-        m_Mode: 1
+        m_MethodName: BuySkin
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5925,6 +5925,8 @@ MonoBehaviour:
   buySkin: {fileID: 21300000, guid: 93fddf5325ca7434dab56a78b2830571, type: 3}
   equipped: {fileID: 21300000, guid: 30543932b1cb1c140982d5f513a1cfe2, type: 3}
   equip: {fileID: 21300000, guid: 2e71aeb7be0b81b4a961f411ec6d9985, type: 3}
+  skins:
+  - {fileID: 21300000, guid: 92d8cf30a6e43034d85ec9fcd184748a, type: 3}
 --- !u!114 &932931996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6343,6 +6345,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403320826}
   m_CullTransparentMesh: 1
+--- !u!1 &1459205990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459205991}
+  - component: {fileID: 1459205992}
+  m_Layer: 5
+  m_Name: Data Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1459205991
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459205990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1493951200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1459205992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459205990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9049488ff5f45434dae09c97e8b2474b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purchasedSkins: 
+  currentSkinNumber: 0
 --- !u!1 &1493951199
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,6 +6430,7 @@ RectTransform:
   - {fileID: 1288855633}
   - {fileID: 932931992}
   - {fileID: 1986792518}
+  - {fileID: 1459205991}
   m_Father: {fileID: 1288731140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6723,8 +6776,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932931995}
         m_TargetAssemblyTypeName: SkinControl, Assembly-CSharp
-        m_MethodName: Buy
-        m_Mode: 1
+        m_MethodName: BuySkin
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6863,10 +6916,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinNum: 1
   buyButton: {fileID: 423255428}
-  price: 0
+  price: 200
   buySkin: {fileID: 21300000, guid: 93fddf5325ca7434dab56a78b2830571, type: 3}
   equipped: {fileID: 21300000, guid: 30543932b1cb1c140982d5f513a1cfe2, type: 3}
   equip: {fileID: 21300000, guid: 2e71aeb7be0b81b4a961f411ec6d9985, type: 3}
+  skins:
+  - {fileID: 21300000, guid: 94419e8beeb5e0942ae21520bba9943c, type: 3}
 --- !u!114 &1986792522
 MonoBehaviour:
   m_ObjectHideFlags: 0
