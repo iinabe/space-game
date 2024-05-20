@@ -2,25 +2,65 @@ using UnityEngine;
 
 public class ShipArmorController : MonoBehaviour
 {
-    public GameObject Ship; // —Ò˚ÎÍ‡ Ì‡ Ó·˙ÂÍÚ Ó·‚Ó‰ÍË
+    public ArmorBar armorBar;
+    
+    private int maxArmor = 100;
+    private int _currentArmor;
+    
+    public SpriteRenderer outline; // –°—Å—ã–ª–∫–∞ –Ω–∞ –æ–±—ä–µ–∫—Ç –æ–±–≤–æ–¥–∫–∏
 
-
-    // ÃÂÚÓ‰ ‰Îˇ ÒÍ˚ÚËˇ Ó·‚Ó‰ÍË
-    public void HideOutline()
+    private void Start()
     {
-        if (Ship != null)
+        if (armorBar != null)
         {
-            Ship.SetActive(false);
+            _currentArmor = 100;
+            
+            armorBar.SetMaxArmor(maxArmor);
+            armorBar.SetArmor(_currentArmor);
         }
     }
 
-    // ÃÂÚÓ‰ ‰Îˇ ÓÚÓ·‡ÊÂÌËˇ Ó·‚Ó‰ÍË
-    public void ShowOutline()
+    // –ú–µ—Ç–æ–¥ –¥–ª—è —Å–∫—Ä—ã—Ç–∏—è –æ–±–≤–æ–¥–∫–∏
+    private void HideOutline()
     {
-        if (Ship != null)
+        if (outline != null)
         {
-            Ship.SetActive(true);
+            outline.enabled = false;
         }
+    }
+
+    // –ú–µ—Ç–æ–¥ –¥–ª—è –æ—Ç–æ–±—Ä–∞–∂–µ–Ω–∏—è –æ–±–≤–æ–¥–∫–∏
+    private void ShowOutline()
+    {
+        if (outline != null)
+        {
+            outline.enabled = true;
+        }
+    }
+
+    public int TryDamage(int damage)
+    {
+        if (_currentArmor > 0)
+        {
+            int armorDamage = Mathf.Min(damage, _currentArmor);
+            _currentArmor -= armorDamage;
+            damage -= armorDamage;
+
+            // –û–±–Ω–æ–≤–ª—è–µ–º –ø–æ–ª–æ—Å–∫—É –±—Ä–æ–Ω–∏
+            if (armorBar != null)
+            {
+                armorBar.SetArmor(_currentArmor);
+            }
+
+            if (_currentArmor <= 0)
+            {
+                HideOutline();
+            }
+        }
+
+        return damage;
+
+
     }
 
 

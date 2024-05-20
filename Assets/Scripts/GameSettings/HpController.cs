@@ -7,32 +7,26 @@ public class HpController : MonoBehaviour
     public ObjectType objectType;
     private int hp;
     private int maxHp = 100;
-    private int armor;
-    private int maxArmor = 100;
+
+
     public AudioClip explosionSound;
     private AudioSource audioSource;
 
     public GameObject Explosion;
-    public ShipArmorController ship;
     public HealthBar healthBar;
-    public ArmorBar armorBar;
 
-    void Start()
+    [SerializeField] private ShipArmorController _armor;
+
+    private void Start()
     {
         switch (objectType)
         {
             case ObjectType.Player:
                 hp = maxHp;
-                armor = maxArmor;
                 if (healthBar != null)
                 {
                     healthBar.SetMaxHealth(maxHp);
                     healthBar.SetHealth(hp);
-                }
-                if (armorBar != null)
-                {
-                    armorBar.SetMaxArmor(maxArmor);
-                    armorBar.SetArmor(armor);
                 }
                 break;
             case ObjectType.Asteroid:
@@ -51,27 +45,15 @@ public class HpController : MonoBehaviour
     public void MakeDamage(int damage)
     {
         // Если есть броня, урон сначала уменьшает броню
-        if (armor > 0)
-        {
-            int armorDamage = Mathf.Min(damage, armor);
-            armor -= armorDamage;
-            damage -= armorDamage;
 
-            // Обновляем полоску брони
-            if (armorBar != null)
-            {
-                armorBar.SetArmor(armor);
-            }
-            if (armor <= 0 && objectType == ObjectType.Player && ship != null)
-            {
-                ship.HideOutline();
-            }
-        }
+		if (IsHaveArmor())
+		{
+			damage = _armor.TryDamage(damage);
+		}
 
         // Если урон остаётся после уменьшения брони, он уменьшает здоровье
         if (damage > 0)
-        {
-           
+        {         
             hp -= damage;
         }
 
@@ -93,6 +75,8 @@ public class HpController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+	private bool IsHaveArmor() => _armor != null;
 
     public void Heal(int healAmount)
     {
