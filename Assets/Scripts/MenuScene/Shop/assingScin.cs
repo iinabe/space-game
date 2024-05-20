@@ -1,15 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class assingScin : MonoBehaviour
+public class PlayerSkinManager : MonoBehaviour
 {
-    public Sprite[] skins;
+    public Sprite[] skins; // Массив спрайтов скинов
 
-    public GameObject Player;
-    void Start()
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
     {
-        Player.GetComponent<SpriteRenderer>().sprite = skins[PlayerPrefs.GetInt("skinNum")];
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        SetSkin(SkinControl.CurrentSkinNumber);
     }
 
+    public void SetSkin(int skinNumber)
+    {
+        if (skinNumber >= 0 && skinNumber < skins.Length)
+        {
+            spriteRenderer.sprite = skins[skinNumber];
+            Debug.Log($"Скин {skinNumber} установлен на игрока.");
+        }
+        else
+        {
+            Debug.LogError($"Скин номер {skinNumber} находится вне диапазона массива skins.");
+        }
+    }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 //  онтроллер данных дл€ скинов
@@ -20,9 +19,6 @@ public class SkinDataController : MonoBehaviour
 
         // «агружаем номер текущего скина
         currentSkinNumber = PlayerPrefs.GetInt("EquippedSkinNumber", 0); // 0 - скин по умолчанию
-
-        // ”станавливаем скин по умолчанию
-        SkinControl.Instance.SetSkin(currentSkinNumber);
     }
 
     private void LoadPurchasedSkins()
@@ -46,5 +42,6 @@ public class SkinDataController : MonoBehaviour
         {
             PlayerPrefs.SetInt($"skin{purchasedSkins[i]}buy", 1);
         }
+        PlayerPrefs.Save();
     }
 }

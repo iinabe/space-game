@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6065660674725759386}
   - component: {fileID: 5570287066012696677}
   - component: {fileID: -1141220014445592020}
-  - component: {fileID: 5212508501987312438}
+  - component: {fileID: -3785850197268978713}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -385,7 +385,7 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
---- !u!114 &5212508501987312438
+--- !u!114 &-3785850197268978713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,7 +400,6 @@ MonoBehaviour:
   skins:
   - {fileID: 21300000, guid: 92d8cf30a6e43034d85ec9fcd184748a, type: 3}
   - {fileID: 21300000, guid: 94419e8beeb5e0942ae21520bba9943c, type: 3}
-  Player: {fileID: 917282607010663579}
 --- !u!1001 &7276413468139451541
 PrefabInstance:
   m_ObjectHideFlags: 0
