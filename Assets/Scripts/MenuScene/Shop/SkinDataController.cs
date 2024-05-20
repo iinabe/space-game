@@ -41,8 +41,6 @@ public class SkinDataController : MonoBehaviour
     // Функция для сохранения данных
     public void SaveData()
     {
-        PlayerPrefs.SetInt("Coins", Coins.coinCount);
-
         // Сохраняем информацию о купленных скинах
         for (int i = 0; i < purchasedSkins.Count; i++)
         {
