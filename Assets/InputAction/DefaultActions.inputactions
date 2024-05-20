@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Fire1",
                     "type": "Button",
                     "id": "956cb083-e1bc-41ef-98cf-7a8860694469",
                     "expectedControlType": "Button",
@@ -206,7 +206,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad;Touch",
-                    "action": "Fire",
+                    "action": "Fire1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
