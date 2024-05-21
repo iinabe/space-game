@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerRocketLauncher : MonoBehaviour
+public class RocketLauncher : MonoBehaviour
 {
     public GameObject rocketPrefab;
     public float explosionRadius = 5f;
-    public int damage = 100;
-    //GameSettings.Damages.rocketDamage;
+
+    private GameSettings gameSettings;
+
+    private void Awake()
+    {
+        gameSettings = FindObjectOfType<GameSettings>();
+    }
 
     public void LaunchRocket(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-
             GameObject rocket = Instantiate(rocketPrefab, transform.position, transform.rotation);
             Destroy(rocket, 5f);
 
@@ -21,7 +25,7 @@ public class PlayerRocketLauncher : MonoBehaviour
             {
                 if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
-                    collider.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+                    collider.gameObject.GetComponent<HpController>()?.MakeDamage(gameSettings.damages.RocketDamage);
                 }
             }
         }

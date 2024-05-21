@@ -4,16 +4,17 @@ using System.Collections;
 public class LaserShot : MonoBehaviour
 {
     public float speed = 10f;
-    public int damage;
-    //gamesettings.damages.laserDamage;
     public Vector2 direction;
     public AudioClip explosionSound; // Звук взрыва астероида
     private AudioSource audioSource; // Компонент для воспроизведения звука
+
+    private GameSettings gameSettings;
 
     void Start()
     {
         direction = transform.up;
         audioSource = GetComponent<AudioSource>(); // Получаем компонент AudioSource
+        gameSettings = FindObjectOfType<GameSettings>();
     }
 
     void Update()
@@ -25,7 +26,7 @@ public class LaserShot : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            other.gameObject.SendMessage("MakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("MakeDamage", gameSettings.damages.LaserDamage, SendMessageOptions.DontRequireReceiver);
             PlayExplosionSound(); // Вызываем метод для воспроизведения звука взрыва
             Destroy(gameObject);
         }

@@ -135,7 +135,7 @@ MonoBehaviour:
   Target: {fileID: 91159686337602730, guid: e060a67a40fce344da69d47a5b80c9e5, type: 3}
   Gun: {fileID: 4001982541683825344}
   Bullet: {fileID: 1898917001950924854, guid: 5f4812aff4161214aa2b032186a75d76, type: 3}
-  FireRate: 1
+  FireRate: 2
   ShootPoint: {fileID: 3787889683973264801}
   Force: 100
   targetTag: Player
@@ -170,7 +170,7 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: d7846cc0521f38144bbe844b5cc21217, type: 3}
   Explosion: {fileID: 8232882153186173988, guid: ad1957fc80086c546a5a7275a9f5967e, type: 3}
   healthBar: {fileID: 0}
-  armorBar: {fileID: 0}
+  _armor: {fileID: 0}
 --- !u!61 &6246003872519973179
 BoxCollider2D:
   m_ObjectHideFlags: 0
