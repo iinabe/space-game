@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HpController : MonoBehaviour
 {
@@ -45,15 +46,14 @@ public class HpController : MonoBehaviour
     public void MakeDamage(int damage)
     {
         // Если есть броня, урон сначала уменьшает броню
-
-		if (IsHaveArmor())
-		{
-			damage = _armor.TryDamage(damage);
-		}
+        if (IsHaveArmor())
+        {
+            damage = _armor.TryDamage(damage);
+        }
 
         // Если урон остаётся после уменьшения брони, он уменьшает здоровье
         if (damage > 0)
-        {         
+        {
             hp -= damage;
         }
 
@@ -72,11 +72,18 @@ public class HpController : MonoBehaviour
                 GetComponent<turretScript>().HpLost();
             }
             Instantiate(Explosion, transform.position, Quaternion.identity);
+
+            // Добавляем проверку на Player и запускаем GameOver Scene
+            if (objectType == ObjectType.Player)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
             Destroy(gameObject);
         }
     }
 
-	private bool IsHaveArmor() => _armor != null;
+    private bool IsHaveArmor() => _armor != null;
 
     public void Heal(int healAmount)
     {

@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Coins : MonoBehaviour
 {
-    public static int coinCount; 
+    public static int coinCount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            AddCoins(2); 
+            AddCoins(2);
             Destroy(gameObject);
         }
     }
