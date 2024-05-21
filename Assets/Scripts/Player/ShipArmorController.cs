@@ -3,21 +3,20 @@ using UnityEngine;
 public class ShipArmorController : MonoBehaviour
 {
     public ArmorBar armorBar;
-    
+    public SpriteRenderer outline; // Ссылка на объект обводки
+
     private int maxArmor = 100;
     private int _currentArmor;
-    
-    public SpriteRenderer outline; // Ссылка на объект обводки
 
     private void Start()
     {
+        _currentArmor = maxArmor;
         if (armorBar != null)
         {
-            _currentArmor = 100;
-            
             armorBar.SetMaxArmor(maxArmor);
             armorBar.SetArmor(_currentArmor);
         }
+        ShowOutline(); // Предполагаем, что обводка должна быть видна изначально
     }
 
     // Метод для скрытия обводки
@@ -58,10 +57,28 @@ public class ShipArmorController : MonoBehaviour
             }
         }
 
-        return damage;
-
-
+        return damage; // Возвращаем оставшийся урон
     }
 
+    public void HealArmor(int healArmorAmount)
+    {
+        Debug.Log("Вызван метод HealArmor");
+        if (_currentArmor < maxArmor) // Проверка, нужно ли вообще лечить броню
+        {
+            _currentArmor += healArmorAmount;
+            _currentArmor = Mathf.Min(_currentArmor, maxArmor);
 
+            if (armorBar != null)
+            {
+                armorBar.SetArmor(_currentArmor);
+            }
+
+            Debug.Log("Броня увеличена на " + healArmorAmount + ", текущая броня: " + _currentArmor);
+            ShowOutline(); // Показываем обводку при восстановлении брони
+        }
+        else
+        {
+            Debug.Log("Броня уже на максимуме.");
+        }
+    }
 }
