@@ -21,11 +21,11 @@ public class GameOverController : MonoBehaviour
 
     void LoadReplayScene()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(GameSettings.SceneNames.MainScene);
     }
 
     void LoadMenuScene()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(GameSettings.SceneNames.Menu);
     }
 }

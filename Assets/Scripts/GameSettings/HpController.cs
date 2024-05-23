@@ -76,7 +76,7 @@ public class HpController : MonoBehaviour
             // Добавляем проверку на Player и запускаем GameOver Scene
             if (objectType == ObjectType.Player)
             {
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene(GameSettings.SceneNames.GameOver);
             }
 
             Destroy(gameObject);

@@ -17,6 +17,7 @@ public class GameSettings : MonoBehaviour
     {
         public const string Menu = "Menu";
         public const string MainScene = "MainScene";
+        public const string GameOver = "GameOver";
     }
 
     public DamageData damages;
