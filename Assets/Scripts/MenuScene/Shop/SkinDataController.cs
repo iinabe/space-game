@@ -9,6 +9,8 @@ public class SkinDataController : MonoBehaviour
     public List<int> purchasedSkins = new List<int>();
     public int currentSkinNumber;
 
+    public Sprite[] skins;
+
     private void Awake()
     {
         // Инициализация
@@ -26,7 +28,8 @@ public class SkinDataController : MonoBehaviour
 
         // Загружаем номер текущего скина
         currentSkinNumber = PlayerPrefs.GetInt("EquippedSkinNumber", 0); // 0 - скин по умолчанию
-        
+        DontDestroyOnLoad(gameObject);
+
     }
 
     private void LoadPurchasedSkins()
@@ -68,5 +71,10 @@ public class SkinDataController : MonoBehaviour
     {
         PlayerPrefs.SetInt($"skin{skinnum}buy", 0);
         purchasedSkins.Add(skinnum);
+    }
+
+    public Sprite GetCurrentSprite() 
+    {
+        return skins[currentSkinNumber];
     }
 }

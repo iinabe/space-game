@@ -18,13 +18,15 @@ public class SkinControl : MonoBehaviour
 
     private void Start()
     {
-        isbought = SkinDataController.Instance.IsBought(skinNum);
-        isequipped = SkinDataController.Instance.currentSkinNumber == skinNum;
         UpdateButtonState();
     }
 
     public void UpdateButtonState()
     {
+
+        isbought = SkinDataController.Instance.IsBought(skinNum);
+        isequipped = SkinDataController.Instance.currentSkinNumber == skinNum;
+
         if (isequipped)
         { 
             buyButton.image.sprite = equipped;
@@ -72,6 +74,7 @@ public class SkinControl : MonoBehaviour
         if (Coins.coinCount >= price) 
         {
             Coins.RemoveCoins(price);
+            SkinDataController.Instance.Buy(skinNum);
             Onclicked?.Invoke();
         }
     }

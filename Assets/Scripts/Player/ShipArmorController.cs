@@ -10,6 +10,7 @@ public class ShipArmorController : MonoBehaviour
 
     private void Start()
     {
+        outline.sprite = SkinDataController.Instance.GetCurrentSprite();
         _currentArmor = maxArmor;
         if (armorBar != null)
         {
