@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 92d8cf30a6e43034d85ec9fcd184748a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9547169, g: 0.94210744, b: 0.94210744, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -413,15 +413,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 92d8cf30a6e43034d85ec9fcd184748a, type: 3}
     - target: {fileID: -541286548547497958, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Color.b
-      value: 0.5180847
+      value: 0.7271566
       objectReference: {fileID: 0}
     - target: {fileID: -541286548547497958, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Color.g
-      value: 0.5180847
+      value: 0.065809794
       objectReference: {fileID: 0}
     - target: {fileID: -541286548547497958, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Color.r
-      value: 0.87169814
+      value: 0.89433956
       objectReference: {fileID: 0}
     - target: {fileID: -541286548547497958, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Enabled
@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: -541286548547497958, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59e4faf24927edf4a82f463ad16f1c37, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4718313896597647792, guid: 9b45b63fa82ae1f4dbd2295535d4508f, type: 3}
       propertyPath: m_Name
       value: ship
