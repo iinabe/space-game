@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -193473016239967782}
   - component: {fileID: -1853949651886406577}
   - component: {fileID: -1683723400835664249}
+  - component: {fileID: -3203760693016565351}
   m_Layer: 3
   m_Name: Storm
   m_TagString: Enemy
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1897222906246792500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 0.0175, y: 0.0131, z: 0}
+  m_LocalScale: {x: 0.40472004, y: 0.40356, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,10 +117,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05410552, y: -0.1627841}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 7.6831145, y: 6.9238396}
   m_EdgeRadius: 0
 --- !u!50 &-1853949651886406577
 Rigidbody2D:
@@ -172,3 +173,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+--- !u!114 &-3203760693016565351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897222906246792500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2ea00cdfe251c4cbae95bbb1b59e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowDownFactor: 0.5
+  slowDownDuration: 2

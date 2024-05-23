@@ -1,13 +1,10 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class StormMove : MonoBehaviour
 {
-    private Vector3 moveDirection;
     private Vector3 initialPosition;
     public float speed;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -17,11 +14,10 @@ public class StormMove : MonoBehaviour
         rb.velocity = move * speed;
     }
 
-   void OnBecameInvisible()
+    void OnBecameInvisible()
     {
         transform.position = initialPosition;
-       Vector3 move = new Vector3(0, -1, 0);
+        Vector3 move = new Vector3(0, -1, 0);
         rb.velocity = move * speed;
-
     }
 }
