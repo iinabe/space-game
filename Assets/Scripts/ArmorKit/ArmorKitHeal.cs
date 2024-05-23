@@ -7,14 +7,13 @@ public class ArmorKitHeal : MonoBehaviour
     public int healArmorAmount;
 
     void OnTriggerEnter2D(Collider2D other)
-
     {
         if (other.gameObject.tag == "Player")
         {
-            ShipArmorController shipArmorController = other.gameObject.GetComponent<ShipArmorController>();
-            if (shipArmorController != null)
+            HpController hpController = other.gameObject.GetComponent<HpController>();
+            if (hpController != null)
             {
-                shipArmorController.HealArmor(healArmorAmount); 
+                hpController.HealArmor(healArmorAmount); 
             }
             Destroy(gameObject);
         }
