@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22ecb075d3cd4f4780ea44f90e650a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
 --- !u!114 &186176062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1986792521}
         m_TargetAssemblyTypeName: SkinControl, Assembly-CSharp
-        m_MethodName: OnBuyOrEquipButtonPressed
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1574,6 +1575,7 @@ GameObject:
   - component: {fileID: 1493951200}
   - component: {fileID: 1493951202}
   - component: {fileID: 1493951201}
+  - component: {fileID: 1493951203}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -1644,6 +1646,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493951199}
   m_CullTransparentMesh: 1
+--- !u!114 &1493951203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493951199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c495918090941e948955e804b77b201e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonInf:
+  - {fileID: 932931995}
+  - {fileID: 1986792521}
 --- !u!1 &1668872756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +1961,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932931995}
         m_TargetAssemblyTypeName: SkinControl, Assembly-CSharp
-        m_MethodName: OnBuyOrEquipButtonPressed
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

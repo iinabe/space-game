@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class SkinControl : MonoBehaviour
 {
-    public static int CurrentSkinNumber { get; private set; } = 0; // Номер текущего скина
-
+    public event Action Onclicked;
     public int skinNum;
     public Button buyButton;
     public int price;
@@ -13,76 +13,66 @@ public class SkinControl : MonoBehaviour
     public Sprite buySkin;
     public Sprite equipped;
     public Sprite equip;
+    private bool isbought;
+    private bool isequipped;
 
     private void Start()
     {
-        // Устанавливаем текущий скин при загрузке сцены
-        SetSkin(PlayerPrefs.GetInt("EquippedSkinNumber", 0));
+        isbought = SkinDataController.Instance.IsBought(skinNum);
+        isequipped = SkinDataController.Instance.currentSkinNumber == skinNum;
+        UpdateButtonState();
     }
 
-    private void UpdateButtonState()
+    public void UpdateButtonState()
     {
-        if (skinNum == 0 && CurrentSkinNumber == 0)
-        {
-            buyButton.image.sprite = equipped; // Скин номер 0 надет всегда, если куплен
-            return;
+        if (isequipped)
+        { 
+            buyButton.image.sprite = equipped;
         }
-
-        if (SkinDataController.Instance.purchasedSkins.Contains(skinNum))
+        else
         {
-            if (CurrentSkinNumber == skinNum)
-            {
-                buyButton.image.sprite = equipped; // Скин надет
+            if (isbought) {
+            buyButton.image.sprite = equip;
             }
             else
             {
-                buyButton.image.sprite = equip; // Скин куплен, но не надет
+                buyButton.image.sprite = buySkin;
             }
+        }
+
+    }
+
+    public void OnButtonClick() 
+    {
+        if (isequipped) 
+        {
+            return;
         }
         else
         {
-            buyButton.image.sprite = buySkin; // Скин не куплен, показываем цену
+            if (isbought)
+            {
+                EquipSkin();
+            }
+            else 
+            {
+                TryBuySkin();
+            }
         }
     }
 
-    public void BuySkin(int skinNumber)
+    public void EquipSkin() 
     {
-        if (Coins.coinCount >= price)
+        SkinDataController.Instance.EquipSkin(skinNum);
+        Onclicked?.Invoke();
+    }
+
+    public void TryBuySkin()
+    {
+        if (Coins.coinCount >= price) 
         {
             Coins.RemoveCoins(price);
-            PlayerPrefs.SetInt($"skin{skinNumber}buy", 1);
-            SkinDataController.Instance.purchasedSkins.Add(skinNumber);
-            SkinDataController.Instance.SaveData();
-            Debug.Log($"Скин {skinNumber} куплен!");
-            UpdateButtonState(); // Обновляем состояние кнопки после покупки
-        }
-        else
-        {
-            Debug.Log("Недостаточно монет!");
-        }
-    }
-
-    public void SetSkin(int skinNumber)
-    {
-        if (skinNumber == 0 || SkinDataController.Instance.purchasedSkins.Contains(skinNumber))
-        {
-            // Снимаем предыдущий скин
-            int previousSkinNumber = CurrentSkinNumber;
-            if (previousSkinNumber != skinNumber)
-            {
-                PlayerPrefs.SetInt($"skin{previousSkinNumber}equip", 0);
-            }
-
-            // Сохраняем номер текущего скина
-            CurrentSkinNumber = skinNumber;
-            PlayerPrefs.SetInt("EquippedSkinNumber", skinNumber);
-            PlayerPrefs.SetInt($"skin{skinNumber}equip", 1);
-            SkinDataController.Instance.SaveData();
-            UpdateButtonState(); // Обновляем состояние кнопки после смены скина
-        }
-        else
-        {
-            Debug.LogError($"Скин номер {skinNumber} не куплен.");
+            Onclicked?.Invoke();
         }
     }
 }

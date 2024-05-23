@@ -9,7 +9,7 @@ public class PlayerSkinManager : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        SetSkin(SkinControl.CurrentSkinNumber);
+        SetSkin(SkinDataController.Instance.currentSkinNumber);
     }
 
     public void SetSkin(int skinNumber)

@@ -14,11 +14,19 @@ public class SkinDataController : MonoBehaviour
         // Инициализация
         Instance = this;
 
+        if (!PlayerPrefs.HasKey("firstlaunch")) 
+        {
+            PlayerPrefs.SetInt("firstlaunch", 0);
+            PlayerPrefs.SetInt("skin0buy", 0);
+            PlayerPrefs.SetInt("EquippedSkinNumber", 0);
+        }
+
         // Загружаем данные о купленных скинах
         LoadPurchasedSkins();
 
         // Загружаем номер текущего скина
         currentSkinNumber = PlayerPrefs.GetInt("EquippedSkinNumber", 0); // 0 - скин по умолчанию
+        
     }
 
     private void LoadPurchasedSkins()
@@ -43,5 +51,22 @@ public class SkinDataController : MonoBehaviour
             PlayerPrefs.SetInt($"skin{purchasedSkins[i]}buy", 1);
         }
         PlayerPrefs.Save();
+    }
+
+    public bool IsBought(int skinnum) 
+    {
+        return purchasedSkins.Contains(skinnum);
+    }
+
+    public void EquipSkin(int skinnum) 
+    {
+        PlayerPrefs.SetInt("EquippedSkinNumber", skinnum);
+        currentSkinNumber = skinnum;
+    }
+
+    public void Buy(int skinnum) 
+    {
+        PlayerPrefs.SetInt($"skin{skinnum}buy", 0);
+        purchasedSkins.Add(skinnum);
     }
 }
