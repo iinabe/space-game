@@ -95,6 +95,13 @@ public class HpController : MonoBehaviour
         }
         Debug.Log("Здоровье увеличено на " + healAmount + ", текущее здоровье: " + hp);
     }
+    public void HealArmor(int armorAmount)
+    {
+        if (IsHaveArmor())
+        {
+            _armor.HealArmor(armorAmount); 
+        }
+    }
 
     void PlayExplosionSound()
     {

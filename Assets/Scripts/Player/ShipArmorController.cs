@@ -62,7 +62,6 @@ public class ShipArmorController : MonoBehaviour
 
     public void HealArmor(int healArmorAmount)
     {
-        Debug.Log("Вызван метод HealArmor");
         if (_currentArmor < maxArmor) // Проверка, нужно ли вообще лечить броню
         {
             _currentArmor += healArmorAmount;
