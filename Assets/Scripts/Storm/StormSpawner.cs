@@ -15,7 +15,7 @@ public class StormSpawner : MonoBehaviour
         if (timer >= spawnDelay && stormCount < 2) 
         {
             Spawn(); 
-            timer = 0f; 
+            timer = 1f; 
         }
     }
 
