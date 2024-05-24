@@ -7,18 +7,17 @@ public class TurretMove : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 initialPosition;
     public Transform BottomPosition;
-    public float speed;
+    private GameSettings gameSettings;
     Rigidbody2D rb;
-    public int damage;
-    
 
-void Start()
+    void Start()
     {
-        initialPosition = transform.position; 
+        gameSettings = FindObjectOfType<GameSettings>();
+        initialPosition = transform.position;
         BottomPosition = TurretSpawner.instance.BottomPosition;
         rb = GetComponent<Rigidbody2D>();
         Vector3 move = new Vector3(0, -1, 0);
-        rb.velocity = move * speed;
+        rb.velocity = move * gameSettings.movements.TurretSpeed; 
     }
 
 

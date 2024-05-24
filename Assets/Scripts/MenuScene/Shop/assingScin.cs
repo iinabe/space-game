@@ -9,6 +9,13 @@ public class PlayerSkinManager : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = SkinDataController.Instance.GetCurrentSprite();
+    }
+
+    private void Start()
+    {
+        if (spriteRenderer != null && SkinDataController.Instance != null)
+        {
+            spriteRenderer.sprite = SkinDataController.Instance.GetCurrentSprite();
+        }
     }
 }

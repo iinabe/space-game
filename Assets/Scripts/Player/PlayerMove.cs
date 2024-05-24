@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 public class SimpleUIInput : MonoBehaviour
 {
     private Vector2 moveVector;
-    public float moveSpeed;
-    private float originalMoveSpeed;
+    private GameSettings gameSettings;
+    private float originalMoveSpeed; 
 
     private void Start()
     {
-        originalMoveSpeed = moveSpeed;
+        gameSettings = FindObjectOfType<GameSettings>();
+        originalMoveSpeed = gameSettings.movements.PlayerSpeed; 
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -22,7 +23,7 @@ public class SimpleUIInput : MonoBehaviour
 
     private void MovePlayer(Vector2 direction)
     {
-        Vector3 movement = new Vector3(direction.x, direction.y, 0f) * moveSpeed * Time.deltaTime;
+        Vector3 movement = new Vector3(direction.x, direction.y, 0f) * gameSettings.movements.PlayerSpeed * Time.deltaTime; 
         transform.Translate(movement, Space.World);
 
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
@@ -38,11 +39,11 @@ public class SimpleUIInput : MonoBehaviour
 
     private IEnumerator SlowDownCoroutine(float factor, float duration)
     {
-        float newMoveSpeed = originalMoveSpeed * factor;
-        moveSpeed = newMoveSpeed;
+        float newMoveSpeed = originalMoveSpeed * factor; 
+        gameSettings.movements.PlayerSpeed = newMoveSpeed; 
 
         yield return new WaitForSeconds(duration);
 
-        moveSpeed = originalMoveSpeed;
+        gameSettings.movements.PlayerSpeed = originalMoveSpeed; 
     }
 }

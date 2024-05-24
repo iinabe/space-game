@@ -7110,6 +7110,15 @@ MonoBehaviour:
     RocketDamage: 100
     BulletDamage: 2
     AsteroidDamage: 3
+  movements:
+    PlayerSpeed: 8
+    RocketSpeed: 10
+    ArmorKitSpeed: 3
+    AsteroidSpeed: 8
+    CoinSpeed: 8
+    MedKitSpeed: 6
+    LaserSpeed: 8
+    TurretSpeed: 3
 --- !u!4 &1886840766
 Transform:
   m_ObjectHideFlags: 0

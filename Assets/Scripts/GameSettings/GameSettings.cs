@@ -11,6 +11,19 @@ public class DamageData
     public int AsteroidDamage;
 }
 
+[System.Serializable]
+public class MovementData
+{
+    public float PlayerSpeed;
+    public float RocketSpeed;
+    public float ArmorKitSpeed;
+    public float AsteroidSpeed;
+    public float CoinSpeed;
+    public float MedKitSpeed;
+    public float LaserSpeed;
+    public float TurretSpeed;
+}
+
 public class GameSettings : MonoBehaviour
 {
     public struct SceneNames
@@ -21,4 +34,5 @@ public class GameSettings : MonoBehaviour
     }
 
     public DamageData damages;
+    public MovementData movements;
 }

@@ -12,14 +12,14 @@ public class LaserShot : MonoBehaviour
 
     void Start()
     {
-        direction = transform.up;
-        audioSource = GetComponent<AudioSource>(); // Получаем компонент AudioSource
         gameSettings = FindObjectOfType<GameSettings>();
+        transform.up = transform.up;
+        AudioSource audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(transform.up * gameSettings.movements.LaserSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)

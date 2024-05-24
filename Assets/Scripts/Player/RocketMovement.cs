@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class RocketMovement : MonoBehaviour
 {
-    public float speed = 10f;
-    private Rigidbody2D rb;
+    private GameSettings gameSettings;
+    Rigidbody2D rb;
 
     private void Start()
     {
+        gameSettings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody2D>(); 
-        rb.velocity = transform.up * speed; 
+        rb.velocity = transform.up * gameSettings.movements.RocketSpeed; 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
