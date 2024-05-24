@@ -4,7 +4,7 @@ using System.Collections;
 public class StormSpawner : MonoBehaviour
 {
     public Transform RightPosition;
-    public float spawnDelay;
+    public float spawnDelay = 15f; // Задержка между спаунами в секундах
     public GameObject Item;
     private int stormCount = 0; 
     private float timer = 0f;
@@ -12,7 +12,7 @@ public class StormSpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime; 
-        if (timer >= spawnDelay && stormCount < 5) 
+        if (timer >= spawnDelay && stormCount < 2) 
         {
             Spawn(); 
             timer = 0f; 
@@ -21,7 +21,7 @@ public class StormSpawner : MonoBehaviour
 
     void Spawn()
     {
-        if (stormCount < 5) 
+        if (stormCount < 2) 
         {
             Vector3 spawnPos = new Vector3(Random.Range(transform.position.x, RightPosition.position.x), transform.position.y, 0);
             Instantiate(Item, spawnPos, transform.rotation);

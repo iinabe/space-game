@@ -186,4 +186,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowDownFactor: 0.5
-  slowDownDuration: 2
+  slowDownDuration: 10
